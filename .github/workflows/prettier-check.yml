@@ -2,17 +2,9 @@ name: Prettier Check
 
 on:
   pull_request:
-    paths:
-      - '**/*.js'
-      - '**/*.ts'
-      - '**/*.jsx'
-      - '**/*.tsx'
-      - '**/*.json'
-      - '**/*.css'
-      - '**/*.scss'
-      - '**/*.md'
-      - '**/*.yaml'
-      - '**/*.yml'
+  push:
+    branches:
+      - master
 
 jobs:
   check-prettier:
