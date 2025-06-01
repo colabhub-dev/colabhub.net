@@ -1,4 +1,5 @@
 ## Getting Started
+
 ```shell
 # Clone the repository
 git clone https://github.com/colabhub-dev/colabhub.net.git
@@ -19,7 +20,9 @@ npm run dev
 ```
 
 ## Contributing
+
 We welcome contributions! Please follow these steps:
+
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix.
 3. Make your changes and commit them with clear messages.
