@@ -1,15 +1,39 @@
-name: Prettier-fix
-on: [pull_request, push]
+name: Prettier Suggest
+
+on:
+  pull_request:
 
 permissions:
   contents: write
 
 jobs:
-  prettier-fix:
+  prettier-commit:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+
     steps:
-      - name: Invoke the Prettier fix
-        uses: WorkOfStan/prettier-fix@main
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          commit-changes: true
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Format code with Prettier
+        run: npm run fmt
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "chore: format code with Prettier" || echo "No changes to commit"
+
+      - name: Push changes
+        run: |
+          git push origin HEAD:${{ github.head_ref }} || echo "No changes to push"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
