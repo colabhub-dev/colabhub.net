@@ -1,0 +1,27 @@
+name: Prettier Suggest
+
+on:
+  pull_request:
+    paths:
+      - '**/*.js'
+      - '**/*.ts'
+      - '**/*.jsx'
+      - '**/*.tsx'
+      - '**/*.json'
+      - '**/*.css'
+      - '**/*.scss'
+      - '**/*.md'
+      - '**/*.yaml'
+      - '**/*.yml'
+
+jobs:
+  prettier-suggest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run Prettier and suggest fixes
+        uses: creyD/prettier_action@v4.3
+        with:
+          prettier_options: --write .
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

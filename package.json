@@ -7,7 +7,9 @@
     "dev:db": "docker compose -f docker-compose.devdb.yml -p colabhub up -d",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "fmt": "prettier --write .",
+    "check-fmt": "prettier --check ."
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.3.2",
@@ -35,6 +37,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
+    "prettier": "^3.5.3",
     "tailwindcss": "^4",
     "tw-animate-css": "^1.3.2",
     "typescript": "^5"
