@@ -1,10 +1,9 @@
 ---
 name: Feature request Japanese
 about: Suggest an idea for this project
-title: ''
-labels: ''
-assignees: ''
-
+title: ""
+labels: ""
+assignees: ""
 ---
 
 **この機能要望はどのような問題に関連していますか？問題について明確かつ簡潔に説明してください。**

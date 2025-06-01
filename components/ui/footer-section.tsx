@@ -1,38 +1,50 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Switch } from "@/components/ui/switch"
-import Link from "next/link"
+import * as React from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
+import Link from "next/link";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip"
-import { Facebook, Github, Instagram, Linkedin, Moon, Send, Sun, Twitter } from "lucide-react"
+} from "@/components/ui/tooltip";
+import {
+  Facebook,
+  Github,
+  Instagram,
+  Linkedin,
+  Moon,
+  Send,
+  Sun,
+  Twitter,
+} from "lucide-react";
 
 function Footer() {
-  const [isDarkMode, setIsDarkMode] = React.useState(true)
+  const [isDarkMode, setIsDarkMode] = React.useState(true);
 
   React.useEffect(() => {
     if (isDarkMode) {
-      document.documentElement.classList.add("dark")
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove("dark")
+      document.documentElement.classList.remove("dark");
     }
-  }, [isDarkMode])
+  }, [isDarkMode]);
 
   return (
     <footer className="relative border-t bg-background text-foreground transition-colors duration-300">
       <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="relative">
-            <h2 className="mb-4 text-3xl font-bold tracking-tight">Colab Hub</h2>
+            <h2 className="mb-4 text-3xl font-bold tracking-tight">
+              Colab Hub
+            </h2>
             <p className="mb-6 text-muted-foreground">
-              Colab Hubは、開発者がプロジェクトを共有し、協力してコードを作成するためのプラットフォームです。
+              Colab
+              Hubは、開発者がプロジェクトを共有し、協力してコードを作成するためのプラットフォームです。
             </p>
             <form className="relative">
               <Input
@@ -54,23 +66,34 @@ function Footer() {
           <div>
             <h3 className="mb-4 text-lg font-semibold">クイックリンク</h3>
             <nav className="space-y-2 text-sm">
-              <Link href="#" className="block transition-colors hover:text-primary">
+              <Link
+                href="#"
+                className="block transition-colors hover:text-primary"
+              >
                 ホーム
               </Link>
-              <Link href="#" className="block transition-colors hover:text-primary">
+              <Link
+                href="#"
+                className="block transition-colors hover:text-primary"
+              >
                 私たちについて
               </Link>
-              <Link href="#" className="block transition-colors hover:text-primary">
+              <Link
+                href="#"
+                className="block transition-colors hover:text-primary"
+              >
                 サービス
               </Link>
-              <Link href="#" className="block transition-colors hover:text-primary">
+              <Link
+                href="#"
+                className="block transition-colors hover:text-primary"
+              >
                 製品
               </Link>
             </nav>
           </div>
           <div>
             <h3 className="mb-4 text-lg font-semibold">お問い合わせ</h3>
-
           </div>
           <div className="relative">
             <h3 className="mb-4 text-lg font-semibold">ソーシャルメディア</h3>
@@ -78,7 +101,11 @@ function Footer() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full">
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      className="rounded-full"
+                    >
                       <Facebook className="h-4 w-4" />
                       <span className="sr-only">Facebook</span>
                     </Button>
@@ -91,7 +118,11 @@ function Footer() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full">
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      className="rounded-full"
+                    >
                       <Twitter className="h-4 w-4" />
                       <span className="sr-only">Twitter</span>
                     </Button>
@@ -104,7 +135,11 @@ function Footer() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full">
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      className="rounded-full"
+                    >
                       <Instagram className="h-4 w-4" />
                       <span className="sr-only">Instagram</span>
                     </Button>
@@ -117,7 +152,11 @@ function Footer() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full">
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      className="rounded-full"
+                    >
                       <Github className="h-4 w-4" />
                       <span className="sr-only">Github</span>
                     </Button>
@@ -157,7 +196,7 @@ function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
 
-export { Footer }
+export { Footer };
