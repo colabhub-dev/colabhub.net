@@ -32,7 +32,6 @@ const transitionVariants = {
 export function Home() {
   return (
     <>
-      <HeroHeader />
       <main className="overflow-hidden">
         <section>
           <div className="relative pt-24">
@@ -206,13 +205,6 @@ export const HeroHeader = () => {
                   size="sm">
                   <Link href="/login">
                     <span>ログイン</span>
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  size="sm">
-                  <Link href="/signup">
-                    <span>サインアップ</span>
                   </Link>
                 </Button>
               </div>
