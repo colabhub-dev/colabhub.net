@@ -1,0 +1,30 @@
+name: Prettier Suggest
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  prettier-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Format code with Prettier
+        run: npm run fmt
+
+      - uses: stefanzweifel/git-auto-commit-action@v5.2.0
+        with:
+          commit_message: Apply Prettier Change
