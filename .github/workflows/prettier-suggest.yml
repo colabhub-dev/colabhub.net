@@ -22,6 +22,6 @@ jobs:
       - name: Run Prettier and suggest fixes
         uses: creyD/prettier_action@v4.3
         with:
-          prettier_options: --write .
+          prettier_options: '**/*.{js,ts,jsx,tsx,json,css,scss,md,yaml,yml} --write'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
