@@ -1,35 +1,75 @@
-## Getting Started
+# Nuxt Minimal Starter
 
-```shell
-# Clone the repository
-git clone https://github.com/colabhub-dev/colabhub.net.git
+Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-# Navigate into the project directory
-cd colabhub.net
+## Setup
 
-# Install dependencies
+Make sure to install dependencies:
+
+```bash
+# npm
 npm install
 
-# Start the development database
-npm run dev:db
+# pnpm
+pnpm install
 
-# Start the development server
-npm run dev
+# yarn
+yarn install
 
-# Open your browser and go to http://localhost:3000
+# bun
+bun install
 ```
 
-## Contributing
+## Development Server
 
-We welcome contributions! Please follow these steps:
+Start the development server on `http://localhost:3000`:
 
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Make your changes and commit them with clear messages.
-4. Push your changes to your forked repository.
-5. Create a pull request to the main repository.
-6. Ensure your code adheres to the project's coding standards and passes all tests.
-7. Wait for review and feedback from the maintainers.
-8. Make any necessary changes based on feedback.
-9. Once approved, your changes will be merged into the main branch.
-10. Celebrate your contribution!
+```bash
+# npm
+npm run dev
+
+# pnpm
+pnpm dev
+
+# yarn
+yarn dev
+
+# bun
+bun run dev
+```
+
+## Production
+
+Build the application for production:
+
+```bash
+# npm
+npm run build
+
+# pnpm
+pnpm build
+
+# yarn
+yarn build
+
+# bun
+bun run build
+```
+
+Locally preview production build:
+
+```bash
+# npm
+npm run preview
+
+# pnpm
+pnpm preview
+
+# yarn
+yarn preview
+
+# bun
+bun run preview
+```
+
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
