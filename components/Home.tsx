@@ -1,33 +1,33 @@
-'use client'
+"use client";
 
-import React from 'react'
-import Link from 'next/link'
-import { Menu, X } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { AnimatedGroup } from '@/components/ui/animated-group'
-import { cn } from '@/lib/utils'
-import { useScroll } from 'motion/react'
+import React from "react";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { AnimatedGroup } from "@/components/ui/animated-group";
+import { cn } from "@/lib/utils";
+import { useScroll } from "motion/react";
 import Image from "next/image";
 
 const transitionVariants = {
   item: {
     hidden: {
       opacity: 0,
-      filter: 'blur(12px)',
+      filter: "blur(12px)",
       y: 12,
     },
     visible: {
       opacity: 1,
-      filter: 'blur(0px)',
+      filter: "blur(0px)",
       y: 0,
       transition: {
-        type: 'spring',
+        type: "spring",
         bounce: 0.3,
         duration: 1.5,
       },
     },
   },
-}
+};
 
 export function Home() {
   return (
@@ -51,22 +51,25 @@ export function Home() {
                     ...transitionVariants,
                   }}
                 >
-                  <h1
-                    className="mt-8 max-w-2xl text-balance text-5xl font-medium md:text-6xl lg:mt-16">
-                    Colab Hubで<br />仲間を集めよう!
+                  <h1 className="mt-8 max-w-2xl text-balance text-5xl font-medium md:text-6xl lg:mt-16">
+                    Colab Hubで
+                    <br />
+                    仲間を集めよう!
                   </h1>
-                  <p
-                    className="mt-8 max-w-2xl text-pretty text-lg">
-                    Colab Hubは、開発者がプロジェクトを共有し、協力してコードを作成するためのプラットフォームです。
+                  <p className="mt-8 max-w-2xl text-pretty text-lg">
+                    Colab
+                    Hubは、開発者がプロジェクトを共有し、協力してコードを作成するためのプラットフォームです。
                   </p>
                   <div className="mt-12 flex items-center gap-2">
                     <div
                       key={1}
-                      className="bg-foreground/10 rounded-[14px] border p-0.5">
+                      className="bg-foreground/10 rounded-[14px] border p-0.5"
+                    >
                       <Button
                         asChild
                         size="lg"
-                        className="rounded-xl px-5 text-base">
+                        className="rounded-xl px-5 text-base"
+                      >
                         <Link href="/create">
                           <span className="text-nowrap">新しく募集する</span>
                         </Link>
@@ -77,7 +80,8 @@ export function Home() {
                       asChild
                       size="lg"
                       variant="ghost"
-                      className="h-[42px] rounded-xl px-5 text-base">
+                      className="h-[42px] rounded-xl px-5 text-base"
+                    >
                       <Link href="/list">
                         <span className="text-nowrap">募集を探す</span>
                       </Link>
@@ -97,7 +101,8 @@ export function Home() {
                   },
                 },
                 ...transitionVariants,
-              }}>
+              }}
+            >
               <div className="relative -mr-56 mt-8 overflow-hidden px-2 sm:mr-0 sm:mt-12 md:mt-20">
                 <div
                   aria-hidden
@@ -125,46 +130,52 @@ export function Home() {
         </section>
       </main>
     </>
-  )
+  );
 }
 
 const menuItems = [
-  { name: '募集する', href: '/create' },
-  { name: '募集を探す', href: '/search' },
-]
+  { name: "募集する", href: "/create" },
+  { name: "募集を探す", href: "/search" },
+];
 
 export const HeroHeader = () => {
-  const [menuState, setMenuState] = React.useState(false)
-  const [scrolled, setScrolled] = React.useState(false)
+  const [menuState, setMenuState] = React.useState(false);
+  const [scrolled, setScrolled] = React.useState(false);
 
-  const { scrollYProgress } = useScroll()
+  const { scrollYProgress } = useScroll();
 
   React.useEffect(() => {
-    const unsubscribe = scrollYProgress.on('change', (latest) => {
-      setScrolled(latest > 0.05)
-    })
-    return () => unsubscribe()
-  }, [scrollYProgress])
+    const unsubscribe = scrollYProgress.on("change", (latest) => {
+      setScrolled(latest > 0.05);
+    });
+    return () => unsubscribe();
+  }, [scrollYProgress]);
 
   return (
     <header>
       <nav
-        data-state={menuState && 'active'}
-        className={cn('group fixed z-20 w-full border-b transition-colors duration-150', scrolled && 'bg-background/50 backdrop-blur-3xl')}>
+        data-state={menuState && "active"}
+        className={cn(
+          "group fixed z-20 w-full border-b transition-colors duration-150",
+          scrolled && "bg-background/50 backdrop-blur-3xl",
+        )}
+      >
         <div className="mx-auto max-w-5xl px-6 transition-all duration-300">
           <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
             <div className="flex w-full items-center justify-between gap-12 lg:w-auto">
               <Link
                 href="/"
                 aria-label="home"
-                className="flex items-center space-x-2">
+                className="flex items-center space-x-2"
+              >
                 <Logo className="text-xl font-bold" />
               </Link>
 
               <button
                 onClick={() => setMenuState(!menuState)}
-                aria-label={menuState == true ? 'Close Menu' : 'Open Menu'}
-                className="relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden">
+                aria-label={menuState == true ? "Close Menu" : "Open Menu"}
+                className="relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden"
+              >
                 <Menu className="group-data-[state=active]:rotate-180 group-data-[state=active]:scale-0 group-data-[state=active]:opacity-0 m-auto size-6 duration-200" />
                 <X className="group-data-[state=active]:rotate-0 group-data-[state=active]:scale-100 group-data-[state=active]:opacity-100 absolute inset-0 m-auto size-6 -rotate-180 scale-0 opacity-0 duration-200" />
               </button>
@@ -175,7 +186,8 @@ export const HeroHeader = () => {
                     <li key={index}>
                       <Link
                         href={item.href}
-                        className="text-muted-foreground hover:text-accent-foreground block duration-150">
+                        className="text-muted-foreground hover:text-accent-foreground block duration-150"
+                      >
                         <span>{item.name}</span>
                       </Link>
                     </li>
@@ -191,7 +203,8 @@ export const HeroHeader = () => {
                     <li key={index}>
                       <Link
                         href={item.href}
-                        className="text-muted-foreground hover:text-accent-foreground block duration-150">
+                        className="text-muted-foreground hover:text-accent-foreground block duration-150"
+                      >
                         <span>{item.name}</span>
                       </Link>
                     </li>
@@ -199,10 +212,7 @@ export const HeroHeader = () => {
                 </ul>
               </div>
               <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
-                <Button
-                  asChild
-                  variant="outline"
-                  size="sm">
+                <Button asChild variant="outline" size="sm">
                   <Link href="/login">
                     <span>ログイン</span>
                   </Link>
@@ -213,13 +223,9 @@ export const HeroHeader = () => {
         </div>
       </nav>
     </header>
-  )
-}
-
-
+  );
+};
 
 const Logo = ({ className }: { className?: string }) => {
-  return (
-    <span className={className}>Colab Hub</span>
-  )
-}
+  return <span className={className}>Colab Hub</span>;
+};
