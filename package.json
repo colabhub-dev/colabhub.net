@@ -5,9 +5,11 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "dev:db": "docker compose -f docker-compose.devdb.yml -p colabhub up -d",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "fmt": "prettier --write ."
   },
   "dependencies": {
     "@nuxt/eslint": "^1.4.1",
@@ -16,6 +18,7 @@
     "@nuxt/test-utils": "^3.19.1",
     "eslint": "^9.28.0",
     "nuxt": "^3.17.4",
+    "prettier": "^3.5.3",
     "vue": "^3.5.16",
     "vue-router": "^4.5.1"
   }
