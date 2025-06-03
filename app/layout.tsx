@@ -4,6 +4,7 @@ import "./globals.css";
 import { Footer } from "@/components/ui/footer-section";
 import React from "react";
 import { HeroHeader } from "@/components/Home";
+import { ThemeProvider } from "@/components/theme-provider"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,13 +27,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
+    <html lang="ja" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <HeroHeader />
-        {children}
-        <Footer />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <HeroHeader />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
