@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
+import { useTheme } from "next-themes";
 import Link from "next/link";
 import {
   Tooltip,
@@ -24,15 +25,7 @@ import {
 } from "lucide-react";
 
 function Footer() {
-  const [isDarkMode, setIsDarkMode] = React.useState(true);
-
-  React.useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [isDarkMode]);
+  const { theme, setTheme } = useTheme();
 
   return (
     <footer className="relative border-t bg-background text-foreground transition-colors duration-300">
@@ -171,8 +164,8 @@ function Footer() {
               <Sun className="h-4 w-4" />
               <Switch
                 id="dark-mode"
-                checked={isDarkMode}
-                onCheckedChange={setIsDarkMode}
+                checked={theme === "dark"}
+                onCheckedChange={() => setTheme(theme === "dark" ? "light" : "dark")}
               />
               <Moon className="h-4 w-4" />
               <Label htmlFor="dark-mode" className="sr-only">
