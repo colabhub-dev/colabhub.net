@@ -8,9 +8,15 @@ export const useAuth = () => {
   onMounted(async () => {
     if (triedToFetch.value) return; // Avoid fetching user again if already tried
     triedToFetch.value = true;
-    try {
-      user.value = await $fetch("/api/auth/me");
-    } catch (error) {}
+    user.value = await $fetch("/api/auth/me", {
+      onRequestError: (err) => {
+        if (err.response && err.response.status === 401) {
+          user.value = null; // Clear user on unauthorized access
+        } else {
+          console.error("Failed to fetch user:", err);
+        }
+      }
+    });
   });
 
   return { user, isLogin };
