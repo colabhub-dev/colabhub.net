@@ -1,12 +1,12 @@
-import {loginGoogle} from "~/server/oauth/google";
+import { loginGoogle } from "~/server/oauth/google";
 
-export default defineEventHandler(async event => {
-  const {code, state} = getQuery(event);
+export default defineEventHandler(async (event) => {
+  const { code, state } = getQuery(event);
 
-  if (!code || typeof code  !== "string" || !state) {
+  if (!code || typeof code !== "string" || !state) {
     throw createError({
       statusCode: 400,
-      statusMessage: "Bad Request: Missing code or state"
+      statusMessage: "Bad Request: Missing code or state",
     });
   }
 
@@ -14,7 +14,7 @@ export default defineEventHandler(async event => {
   if (storedState !== state) {
     throw createError({
       statusCode: 403,
-      statusMessage: "Forbidden: Invalid state"
+      statusMessage: "Forbidden: Invalid state",
     });
   }
 
@@ -23,10 +23,10 @@ export default defineEventHandler(async event => {
   if (!user) {
     throw createError({
       statusCode: 401,
-      statusMessage: "Unauthorized: Failed to login with Google"
+      statusMessage: "Unauthorized: Failed to login with Google",
     });
   }
 
-  setCookie(event, "token", user.token,  secureCookieOptions());
+  setCookie(event, "token", user.token, secureCookieOptions());
   await sendRedirect(event, "/", 302);
-})
+});

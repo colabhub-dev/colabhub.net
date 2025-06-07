@@ -1,8 +1,8 @@
-import type {User} from "~/share/types";
+import type { User } from "~/share/types";
 
 export const useAuth = () => {
-  const triedToFetch = useState<boolean>('triedToFetch', () => false);
-  const user = useState<User | null>('user', () => null);
+  const triedToFetch = useState<boolean>("triedToFetch", () => false);
+  const user = useState<User | null>("user", () => null);
   const isLogin = computed(() => user.value !== null);
 
   onMounted(async () => {
@@ -10,9 +10,8 @@ export const useAuth = () => {
     triedToFetch.value = true;
     try {
       user.value = await $fetch("/api/auth/me");
-    } catch (error) {
-    }
+    } catch (error) {}
   });
 
-  return {user, isLogin};
-}
+  return { user, isLogin };
+};

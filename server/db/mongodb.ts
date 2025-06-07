@@ -1,12 +1,12 @@
-import {MongoClient} from "mongodb";
-import type {ObjectId} from "bson";
-import type {User} from "~/share/types";
+import { MongoClient } from "mongodb";
+import type { ObjectId } from "bson";
+import type { User } from "~/share/types";
 
 type ObjectIdHeader = {
   _id?: ObjectId;
-}
+};
 
-type UserDocument = Omit<User, '_id'> & ObjectIdHeader
+type UserDocument = Omit<User, "_id"> & ObjectIdHeader;
 
 export function getClient() {
   return new MongoClient(
@@ -23,8 +23,10 @@ export function getUserCollection() {
 }
 
 export function generateToken() {
-  return Math.random().toString(36).substring(2, 15)
-    + Math.random().toString(36).substring(2, 15)
-    + Math.random().toString(36).substring(2, 15)
-    + Math.random().toString(36).substring(2, 15);
+  return (
+    Math.random().toString(36).substring(2, 15) +
+    Math.random().toString(36).substring(2, 15) +
+    Math.random().toString(36).substring(2, 15) +
+    Math.random().toString(36).substring(2, 15)
+  );
 }

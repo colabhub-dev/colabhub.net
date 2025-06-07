@@ -1,16 +1,16 @@
-import {getUserCollection} from "~/server/db/mongodb";
+import { getUserCollection } from "~/server/db/mongodb";
 
-export default defineEventHandler(async event => {
-   const token = getCookie(event, "token");
+export default defineEventHandler(async (event) => {
+  const token = getCookie(event, "token");
 
   if (!token) {
-     throw createError({
-       statusCode: 401,
-        statusMessage: "Unauthorized",
-     })
-   }
+    throw createError({
+      statusCode: 401,
+      statusMessage: "Unauthorized",
+    });
+  }
 
-  const user = await getUserCollection().findOne({token: token});
+  const user = await getUserCollection().findOne({ token: token });
 
   if (!user) {
     throw createError({
@@ -21,6 +21,6 @@ export default defineEventHandler(async event => {
 
   return {
     ...user,
-    _id: user._id.toString("hex")
+    _id: user._id.toString("hex"),
   };
 });

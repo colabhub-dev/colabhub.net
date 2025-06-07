@@ -8,7 +8,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "fmt": "prettier --write ."
+    "fmt": "prettier --write .",
+    "fmt-check": "prettier --check ."
   },
   "dependencies": {
     "@nuxt/eslint": "^1.4.1",

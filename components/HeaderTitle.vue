@@ -1,6 +1,4 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <NuxtLink to="/">
@@ -10,6 +8,4 @@
   </NuxtLink>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
