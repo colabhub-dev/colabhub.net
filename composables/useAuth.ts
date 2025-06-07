@@ -15,7 +15,7 @@ export const useAuth = () => {
         } else {
           console.error("Failed to fetch user:", err);
         }
-      }
+      },
     });
   });
 
