@@ -13,8 +13,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -31,9 +29,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull
           git add .
           git commit -m "chore: format code with Prettier" || echo "No changes to commit"
 
       - name: Push changes
-        run: |
-          git push origin HEAD:${{ github.head_ref }} || echo "No changes to push"
+        run: git push origin HEAD:${{ github.head_ref }} || echo "No changes to push"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
